@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://caf1nqwsxa0vt"]
+
+[ext_resource type="Texture2D" uid="uid://c3cfybxqfhcli" path="res://art/SpriteSheet.png" id="1_nh2m4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nh2m4"]
+
+[node name="NPC" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nh2m4")
+hframes = 4
+vframes = 7
+
+[node name="Actionable" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+shape = SubResource("CircleShape2D_nh2m4")
