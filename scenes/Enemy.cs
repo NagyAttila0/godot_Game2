@@ -109,4 +109,5 @@ public partial class Enemy : CharacterBody2D
 		if (_sprite != null) await ToSignal(_sprite, "animation_finished");
 		QueueFree();
 	}
+	
 }

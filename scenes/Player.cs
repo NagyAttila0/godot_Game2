@@ -4,7 +4,7 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	[Export] public float Speed = 80f; 
-	[Export] public int Health = 5;
+	[Export] public int Health = 15;
 	[Export] public int Damage = 2;
 
 	private AnimatedSprite2D _animatedSprite;

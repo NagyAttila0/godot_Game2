@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnqrmh2ta12on"]
+[gd_scene load_steps=13 format=3 uid="uid://bnqrmh2ta12on"]
 
 [ext_resource type="PackedScene" uid="uid://co2p6vx85g4bl" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://i5lqbl4wp1sv" path="res://art/TilesetFloor.png" id="2_4wyf3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cldd4imj6tej4" path="res://scenes/enemy.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://cxnd6icmaoqoa" path="res://scenes/GameOverScreen.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://ba6kegna8u7vc" path="res://scenes/WinScreen.tscn" id="8_4mrxx"]
+[ext_resource type="Script" uid="uid://dmm8jgk1fe730" path="res://scenes/EnemyManager.cs" id="9_7r4gi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71j4m"]
 texture = ExtResource("2_4wyf3")
@@ -882,18 +883,12 @@ position = Vector2(-7, 58)
 position = Vector2(152, 112)
 
 [node name="Key" parent="." instance=ExtResource("4_k0juu")]
+z_index = 10
 position = Vector2(443, -168)
 
 [node name="door" parent="." instance=ExtResource("5_71j4m")]
-position = Vector2(-253, -130)
-
-[node name="Enemy" parent="." instance=ExtResource("6_qfnet")]
-z_index = 10
-position = Vector2(429, -130)
-
-[node name="Enemy" parent="Enemy" instance=ExtResource("6_qfnet")]
-z_index = 10
-position = Vector2(-132, 206)
+z_index = 1
+position = Vector2(-294, -113)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
@@ -912,18 +907,33 @@ offset_bottom = -59.0
 process_mode = 3
 visible = false
 
-[node name="Enemy2" parent="." instance=ExtResource("6_qfnet")]
-z_index = 10
-position = Vector2(326, -114)
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("9_7r4gi")
 
-[node name="Enemy" parent="Enemy2" instance=ExtResource("6_qfnet")]
-z_index = 10
-position = Vector2(52, 238)
+[node name="enemies" type="Node" parent="."]
 
-[node name="Enemy2" parent="Enemy2" instance=ExtResource("6_qfnet")]
-z_index = 10
-position = Vector2(88, 114)
+[node name="CanvasGroup" type="CanvasGroup" parent="enemies"]
 
-[node name="Enemy" parent="Enemy2/Enemy2" instance=ExtResource("6_qfnet")]
+[node name="Enemy3" parent="enemies/CanvasGroup" instance=ExtResource("6_qfnet")]
 z_index = 10
-position = Vector2(-131, -2)
+position = Vector2(386, 65)
+
+[node name="Enemy2" parent="enemies/CanvasGroup" instance=ExtResource("6_qfnet")]
+z_index = 10
+position = Vector2(334, -173)
+
+[node name="Enemy4" parent="enemies/CanvasGroup" instance=ExtResource("6_qfnet")]
+z_index = 10
+position = Vector2(291, -61)
+
+[node name="Enemy5" parent="enemies/CanvasGroup" instance=ExtResource("6_qfnet")]
+z_index = 10
+position = Vector2(422, -59)
+
+[node name="Enemy6" parent="enemies/CanvasGroup" instance=ExtResource("6_qfnet")]
+z_index = 10
+position = Vector2(305, 17)
+
+[node name="Enemy" parent="enemies/CanvasGroup" instance=ExtResource("6_qfnet")]
+z_index = 10
+position = Vector2(437, -189)
